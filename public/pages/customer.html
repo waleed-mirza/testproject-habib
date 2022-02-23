@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/customer.css">
+    <title>Customer Panel</title>
+</head>
+
+<body>
+    <section class="admin-section">
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>About Us</li>
+                <li>Contact Us</li>
+                <li class="logout">Logout</li>
+            </ul>
+        </nav>
+    </section>
+    <section class="appointment-section">
+        <button class="book-btn">Book apointments</button>
+    </section>
+    <script>
+
+        if (localStorage.getItem('user') !== "1") {
+            window.location.href = "/"
+        }
+        else
+            document.querySelector('.logout').addEventListener('click', (e) => {
+                localStorage.removeItem("auth")
+                localStorage.removeItem("user")
+
+                window.location.reload()
+            })
+
+    </script>
+</body>
+
+</html>

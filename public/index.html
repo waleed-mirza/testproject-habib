@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="./pages/signup.html">Sign up </a>
+        <a href="./pages/login.html">Login </a>
+        <button class="logout">LogOut</button>
+    </div>
+
+
+
+
+
+    <script>
+        document.querySelector('.logout').addEventListener('click', (e) => {
+            localStorage.removeItem("auth")
+            window.location.reload()
+        })
+        let check = localStorage.getItem("auth")
+        if (check === "true") {
+            console.log('succesfully logged in')
+            if (localStorage.getItem('user') === "1") {
+                window.location.href = './pages/customer.html'
+            }
+            else if (localStorage.getItem('user') === "2") {
+                window.location.href = './pages/admin.html'
+
+            }
+        }
+
+        else {
+            window.location.href = './pages/signup.html'
+        }
+
+    </script>
+</body>
+
+</html>
